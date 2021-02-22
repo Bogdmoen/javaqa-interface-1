@@ -25,4 +25,5 @@ public class Ticket implements Comparable<Ticket> {
         return cost - o.cost;
     }
 
+
 }
