@@ -1,7 +1,6 @@
 package ru.netology.ru.netology.manager;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.netology.domain.Ticket;
 import ru.netology.repository.TicketRepository;
@@ -15,7 +14,7 @@ public class TicketManager {
     TicketRepository repository = new TicketRepository();
 
 
-    public void addItem (Ticket ticket) {
+    public void addItem(Ticket ticket) {
         repository.saveItem(ticket);
     }
 

@@ -3,12 +3,10 @@ package ru.netology.ru.netology.manager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Ticket;
-import ru.netology.repository.TicketRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicketManagerTest {
-
     TicketManager manager = new TicketManager();
 
     Ticket first = new Ticket(1, 5_000, "DME", "LED", 600);
@@ -44,6 +42,5 @@ class TicketManagerTest {
 
         assertArrayEquals(expected, actual);
     }
-
 
 }

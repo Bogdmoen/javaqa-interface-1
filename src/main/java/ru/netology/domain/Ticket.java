@@ -15,11 +15,8 @@ public class Ticket implements Comparable<Ticket> {
     private int duration;
 
 
-    public boolean matches (String fromSearch, String toSearch) {
-        if (getFrom().equalsIgnoreCase(fromSearch) && getTo().equalsIgnoreCase(toSearch)) {
-            return true;
-        }
-        return false;
+    public boolean matches(String fromSearch, String toSearch) {
+        return getFrom().equalsIgnoreCase(fromSearch) && getTo().equalsIgnoreCase(toSearch);
     }
 
     @Override
