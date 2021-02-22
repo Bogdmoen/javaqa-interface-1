@@ -7,7 +7,6 @@ import ru.netology.domain.DurationComparatorDesc;
 import ru.netology.domain.PriceComparatorAsc;
 import ru.netology.domain.Ticket;
 
-import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,7 +60,7 @@ class TicketManagerTest {
     public void shouldGetSearchResultDurationDesc() {
 
         Ticket[] actual = manager.getAllComp("DME", "LED", new DurationComparatorDesc());
-        Ticket[] expected = new Ticket[]{third, fifth, first };
+        Ticket[] expected = new Ticket[]{third, fifth, first};
 
         assertArrayEquals(expected, actual);
     }
