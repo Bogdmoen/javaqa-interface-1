@@ -6,6 +6,7 @@ import ru.netology.domain.Ticket;
 import ru.netology.repository.TicketRepository;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,6 +35,25 @@ public class TicketManager {
             }
         }
         Arrays.sort(result);
+        return result;
+    }
+
+    public Ticket[] getAllComp(String from, String to, Comparator<Ticket> comparator) {
+        Ticket[] tmp;
+        Ticket[] result = new Ticket[0];
+        int index = 1;
+        for (Ticket ticket : repository.findAll()) {
+
+            if (ticket.matches(from, to)) {
+                tmp = new Ticket[index];
+                System.arraycopy(result, 0, tmp, 0, result.length);
+                int lastIndex = tmp.length - 1;
+                tmp[lastIndex] = ticket;
+                result = tmp;
+                index++;
+            }
+        }
+        Arrays.sort(result, comparator);
         return result;
     }
 
