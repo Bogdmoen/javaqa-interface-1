@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TicketManagerTest {
 
-    TicketManager manager = new TicketManager(new TicketRepository());
+    TicketManager manager = new TicketManager();
 
-    Ticket first = new Ticket(1, 1_000, "DME", "LED", 600);
+    Ticket first = new Ticket(1, 5_000, "DME", "LED", 600);
     Ticket second = new Ticket(2, 1_000, "DME", "PKC", 600);
     Ticket third = new Ticket(3, 3_000, "DME", "LED", 600);
     Ticket forth = new Ticket(4, 2_000, "LED", "DME", 600);
@@ -28,11 +28,22 @@ class TicketManagerTest {
     }
 
     @Test
-    public void shouldGetAll() {
+    public void shouldGetSearchResult() {
 
         Ticket[] actual = manager.getAll("DME", "LED");
-        Ticket[] expected = new Ticket[]{first, third, fifth};
+        Ticket[] expected = new Ticket[]{fifth, third, first};
 
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldGetEmptySearchResult() {
+
+        Ticket[] actual = manager.getAll("PKC", "LED");
+        Ticket[] expected = new Ticket[0];
+
+        assertArrayEquals(expected, actual);
+    }
+
+
 }

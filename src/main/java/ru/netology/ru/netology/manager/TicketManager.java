@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import ru.netology.domain.Ticket;
 import ru.netology.repository.TicketRepository;
 
+import java.util.Arrays;
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class TicketManager {
@@ -19,7 +21,6 @@ public class TicketManager {
 
     public Ticket[] getAll(String from, String to) {
         Ticket[] tmp;
-        Ticket [] test = repository.findAll();
         Ticket[] result = new Ticket[0];
         int index = 1;
         for (Ticket ticket : repository.findAll()) {
@@ -33,6 +34,7 @@ public class TicketManager {
                 index++;
             }
         }
+        Arrays.sort(result);
         return result;
     }
 
